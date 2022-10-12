@@ -1,0 +1,111 @@
+﻿@model Usuario
+@{
+    Layout = null;
+}
+
+
+<!-- Section: Design Block -->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="shortcut icon" type="image/jpg" href="~/lib/Images/LYRAlogo.jpg" />
+
+</head>
+
+@*INICIO DEL CUERPO DEL DOCUMENTO
+*@
+
+<body>
+
+    @*NAVBAR*@
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" asp-controller="Acceso" asp-action="Index">Lyra Accesorios</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+    </nav>
+    @*    IMAGEN DEL EXTREMO IZQUIERDO
+    *@
+    <section class=" text-center text-lg-start">
+
+        <div class="card mb-3">
+            <div class="row g-0 d-flex align-items-center">
+                <div class="col-lg-4 d-none d-lg-flex">
+                    <img src="~/lib/Images/joyas.jpg" alt="Lyra Logo" />
+                </div>
+                <div class="col-lg-8">
+                    <div class="card-body py-5 px-md-5">
+
+
+
+                        @*                
+
+                        *@
+                        <center>
+
+                            <div class="img-container">
+                                <img src="~/lib/Images/LYRAlogo.jpg" alt="Lyra Logo" />
+                            </div>
+                        </center>
+
+
+
+                        <form method="post" asp-controller="Acceso" ap-action="Index">
+
+                            <!-- Email input -->
+                            <div class="form-outline mb-4">
+                                <input type="email" id="form2Example1" placeholder="Ingrese su correo electrónico" class="form-control" asp-for="UsuarioEmail" />
+                            </div>
+
+                            <!-- Password input -->
+                            <div class="form-outline mb-4">
+                                <input type="password" id="form2Example2" placeholder="Ingrese su contraseña" class="form-control" asp-for="UsuarioContrasenia" />
+                            </div>
+
+                            <!-- 2 column grid layout for inline styling -->
+                            <div class="row mb-4">
+                                <div class="col d-flex justify-content-center">
+                                    <!-- Checkbox -->
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
+                                        <label class="form-check-label" for="form2Example31"> Recuérdame </label>
+                                    </div>
+                                </div>
+
+                                <div class="col">
+                                    <!-- Simple link -->
+
+                                    <a href="https://www.youtube.com/watch?v=E9de-cmycx8" target="_blank">¿Olvidaste tu contraseña?</a>
+                                </div>
+                            </div>
+
+                            <!-- Submit button -->
+                            <button type="submit" class="btn btn-primary btn-block mb-4 ">Iniciar sesión</button>
+                            <a class="btn btn-success" class="btn btn-success" style="margin-bottom:24px; margin-left:305px;" asp-controller="Registro" asp-action="Index">Crear nueva cuenta</a>
+
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</body>
+
+</html>
+
+
+<footer class="border-top footer text-muted">
+    <div class="container">
+        &copy; 2022 - Royett Marcos - <a asp-area="" asp-action="Privacy">Privacy</a>
+    </div>
+</footer>

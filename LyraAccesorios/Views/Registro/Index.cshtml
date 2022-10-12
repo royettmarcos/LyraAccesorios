@@ -1,0 +1,110 @@
+﻿@model Usuario
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="shortcut icon" type="image/jpg" href="~/lib/Images/LYRAlogo.jpg" />
+
+</head>
+
+@*INICIO DEL CUERPO DEL DOCUMENTO
+*@
+
+
+<body>
+
+    @*NAVBAR*@
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" asp-controller="Acceso" asp-action="Index">LyraAccesorios</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+    </nav>
+    @{
+        <!-- Section: Design Block -->
+
+        <section class="text-center text-lg-start">
+
+            <!-- Jumbotron -->
+            <div class="container py-4">
+                <div class="row g-0 align-items-center">
+                    <div class="col-lg-6 mb-5 mb-lg-0">
+                        <div class="card cascading-right" style="
+                            background: hsla(0, 0%, 100%, 0.55);
+                            backdrop-filter: blur(30px);
+                            ">
+                            <div class="card-body p-5 shadow-5 text-center">
+                                <h2 class="fw-bold mb-5">Crear nuevo usuario</h2>
+
+
+                                <form method="post" asp-controller="Registro" ap-action="Index">
+
+                                    <!-- 2 column grid layout with text inputs for the first and last names -->
+                                    <div class="row">
+                                        <div class="col-md-6 mb-4">
+                                            <div class="form-outline mb-4" style="width:459px">
+                                                <label asp-for="UsuarioNombre" class="form-label" for="form3Example4">Usuario</label>
+                                                <input asp-for="UsuarioNombre" class="form-control" type="text" id="form3Example4" placeholder="Ingrese su nombre de usuario" />
+                                                <span asp-validation-for="UsuarioNombre" class="text-danger" />
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- Email input -->
+                                    <div class="form-outline mb-4">
+                                        <label asp-for="UsuarioEmail" class="form-label" for="form3Example4">Correo electrónico</label>
+                                        <input asp-for="UsuarioEmail" class="form-control" type="email" id="form3Example4" placeholder="Ingrese su correo electrónico" />
+                                        <span asp-validation-for="UsuarioEmail" class="text-danger" />
+
+                                    </div>
+
+                                    <!-- Password input -->
+                                    <div class="form-outline mb-4">
+                                        <label asp-for="UsuarioContrasenia" class="form-label" for="form3Example4">Contraseña</label>
+                                        <input asp-for="UsuarioContrasenia" class="form-control" type="password" id="form3Example4" placeholder="Ingrese su contraseña" />
+                                        <span asp-validation-for="UsuarioContrasenia" class="text-danger" />
+
+                                    </div>
+
+                                    <!-- Checkbox -->
+                                    <div class="form-check d-flex justify-content-center mb-4">
+                                        <input class="form-check-input me-2" type="checkbox" value="" id="form2Example33" checked />
+                                        <label class="form-check-label" for="form2Example33">
+                                            Recuérdame
+                                        </label>
+                                    </div>
+
+                                    <!-- Submit button -->
+
+                                    <button type="submit" value="Index" class="btn btn-success form-control" asp-area="" asp-controller="Registro" asp-action="Guardar">Registrarme</button>
+
+
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+
+                  
+                </div>
+            </div>
+            <!-- Jumbotron -->
+        </section>
+        <!-- Section: Design Block -->
+    }
+
+</body>
+
+</html>

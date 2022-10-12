@@ -1,0 +1,35 @@
+﻿@model Tienda
+@using Microsoft.AspNetCore.Identity;
+
+@{
+    ViewData["Title"] = "GuardarTienda";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card-body">
+    <!--Formularios de recepcion de datos-->
+    <form method="post" asp-action="Guardar" asp-controller="Tienda">
+        <!--Validacion-->
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <!--Campos-->
+
+        <div class="container" style="padding:30px">
+            <div class="form-group">
+                <label asp-for="NombreTienda" class="form-label">Nombre de la tienda</label>
+                <input asp-for="NombreTienda" class="form-control" type="text" placeholder="Ingrese un nombre para su tienda" />
+                <span asp-validation-for="NombreTienda" class="text-danger" />
+            </div>
+        </div>
+
+
+        <!--Botones para enviar los datos y volver al listado-->
+
+        <div class="container" style="padding:30px">
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-success form-control"/>
+            </div>
+            <div class="form-group">
+                <a class="btn btn-secondary" class="btn btn-success" style="margin-top:10px; margin-left:886px" asp-controller="Home" asp-action="Index">Volver</a>
+            </div>
+        </div>
+    </form>
+</div>

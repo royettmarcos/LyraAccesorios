@@ -1,0 +1,64 @@
+﻿@model LyraAccesorios.Models.Producto
+@{
+    ViewData["Title"] = "Guardar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="card-body">
+    <!--Formularios de recepcion de datos-->
+    <form method="post" asp-action="Guardar" asp-controller="Producto">
+        <!--Validacion-->
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <!--Campos-->
+
+
+        <div class="container" style="padding:30px">
+            <div class="form-group">
+                <label asp-for="TiendaId" class="form-label">ID Tienda</label>
+                <input asp-for="TiendaId" class="form-control" type="text" placeholder="Ingrese el ID de la tienda destino para su producto" />
+                <span asp-validation-for="TiendaId" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="container" style="padding:30px">
+            <div class="form-group">
+                <label asp-for="Modelo" class="form-label">Modelo</label>
+                <input asp-for="Modelo" class="form-control" type="text" placeholder="Ingrese modelo ..." />
+                <span asp-validation-for="Modelo" class="text-danger" />
+            </div>
+        </div>
+        <div class="container" style="padding:30px">
+            <div class="form-group">
+                <label asp-for="material" class="form-label">material</label>
+                <input asp-for="material" class="form-control" type="text" placeholder="Especifique el material del producto: Acero Blanco, Acero Dorado, Acero, Oro18k, Plata925." />
+                <span asp-validation-for="material" class="text-danger" />
+            </div>
+        </div>
+        <div class="container" style="padding:30px">
+            <div class="form-group">
+                <label asp-for="Descripcion" class="form-label">Descripcion</label>
+                <input asp-for="Descripcion" class="form-control" type="text" placeholder="Ingrese una descripción del producto ..." />
+                <span asp-validation-for="Descripcion" class="text-danger" />
+            </div>
+        </div>
+
+        <div class="container" style="padding:30px">
+            <div class="form-group">
+                <label asp-for="Precio" class="form-label">Precio</label>
+                <input asp-for="Precio" class="form-control" type="text" placeholder="Ingrese el precio ..." />
+                <span asp-validation-for="Precio" class="text-danger" />
+            </div>
+        </div>
+
+
+        <!--Botones para enviar los datos y volver al listado-->
+
+        <div class="container" style="padding:30px">
+            <div class="form-group">
+                <input type="submit" value="Guardar" class="btn btn-success form-control" />
+            </div>
+            <div class="form-group">
+                <a class="btn btn-primary" class="btn btn-success" style="margin-top:10px; margin-left:886px" asp-controller="Producto" asp-action="Index">Volver al listado</a>
+            </div>
+        </div>
+    </form>
+</div>

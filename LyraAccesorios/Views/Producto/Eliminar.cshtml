@@ -1,0 +1,34 @@
+﻿@model LyraAccesorios.Models.Producto
+@{
+    ViewData["Title"] = "Eliminar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card-body">
+    <!--Formularios de recepcion de datos-->
+    <form method="post" asp-action="Eliminar" asp-controller="Producto">
+        <!--Campo secreto-->
+        <input type="hidden" asp-for="ProductoId" />
+        <!--Validacion-->
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <!--Campos-->
+
+        <div class="container" style="padding:30px">
+            <div class="form-group">
+                <label asp-for="Modelo" class="form-label">¿Desea eliminar el artículo?</label>
+                <input asp-for="Modelo" class="form-control" type="text" disabled />
+                <span asp-validation-for="Modelo" class="text-danger" />
+            </div>
+        </div>
+        <!--Botones para enviar los datos y volver al listado-->
+
+        <div class="container" style="padding:30px">
+            <div class="form-group">
+                <input type="submit" value="Eliminar" class="btn btn-danger form-control" />
+            </div>
+            <div class="form-group">
+                <a class="btn btn-primary" class="btn btn-success" style="margin-top:10px; margin-left:886px" asp-controller="Producto" asp-action="Index">Volver al listado</a>
+            </div>
+        </div>
+    </form>
+</div>

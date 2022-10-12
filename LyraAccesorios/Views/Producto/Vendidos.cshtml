@@ -1,0 +1,83 @@
+﻿@model IEnumerable<LyraAccesorios.Models.Producto>
+@using Microsoft.AspNetCore.Identity;
+
+@{
+    ViewData["Title"] = "Vendidos";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<center>
+    <div class="img-container">
+        <img src="~/lib/Images/LYRAlogo.jpg" alt="Logo Lyra" />
+    </div>
+</center>
+
+<h1> Registro de ventas | Productos</h1>
+
+
+
+<div class="card-body">
+
+    <!--Formularios para eliminar datos-->
+    @if (Model.Count() > 0)
+    {
+        <!--Muestra en una tabla los nombres de las columnas-->
+        <table class="table table-striped border">
+            <tr class="table-secondary">
+                <th>@Html.DisplayNameFor(m => m.First().TiendaId)</th>
+                <th>@Html.DisplayNameFor(m => m.First().ProductoId)</th>
+                <th>@Html.DisplayNameFor(m => m.First().FechaAlta)</th>
+                <th>@Html.DisplayNameFor(m => m.First().Modelo)</th>
+                <th>@Html.DisplayNameFor(m => m.First().material)</th>
+                <th>@Html.DisplayNameFor(m => m.First().Descripcion)</th>
+                <th>@Html.DisplayNameFor(m => m.First().Precio)</th>
+                <th>@Html.DisplayNameFor(m => m.First().disponibilidad)</th>
+
+                <th>Acciones</th>
+            </tr>
+            <!--Muestra en la misma tabla los resgistros de las columnas-->
+            @foreach (var item in Model)
+            {
+                @if (item.disponibilidad == Disponibilidad.Agotado)
+                {
+
+                    <tr>
+                        <td>@item.TiendaId</td>
+                        <td>@item.ProductoId</td>
+                        <td>@item.FechaAlta.ToShortDateString()</td>
+                        <td>@item.Modelo</td>
+                        <td>@item.material</td>
+                        <td>@item.Descripcion</td>
+                        <td>US$ @item.Precio</td>
+                        <td>@item.disponibilidad</td>
+
+
+                        <td>
+                            <!--Acciones de edicion y eliminado-->
+                            @if (User.IsInRole("admin") || User.IsInRole("SuperAdmin"))
+                            {
+
+                                <a asp-route-id="@item.ProductoId"
+                   asp-action="Recuperar"
+                   asp-asp-controller="Producto"
+                   class="btn btn-success" style=" margin-top:3px">Recuperar artículo</a>
+                            }
+
+
+
+                        </td>
+
+                    </tr>
+                }
+
+            }
+        </table>
+
+        <!--Respuesta por defecto-->
+    }
+    else
+    {
+        <p> Aún no se han registrado ventas en el sistema.</p>
+    }
+</div>
